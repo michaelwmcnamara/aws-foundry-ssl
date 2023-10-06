@@ -3,7 +3,7 @@ Description=Foundry VTT
 After=network.target
 
 [Service]
-Environment=NODE_PORT=30000
+Environment=NODE_PORT=29845
 WorkingDirectory=/home/foundry/foundry-install/resources/app/
 Type=simple
 User=foundry

@@ -304,8 +304,8 @@
 				"SecurityGroupIngress": [
 					{
 						"IpProtocol": "tcp",
-						"FromPort": 30000,
-						"ToPort": 30000,
+						"FromPort": 29845,
+						"ToPort": 29845,
 						"CidrIp": "0.0.0.0/0"
 					}
 				]
@@ -696,7 +696,7 @@
 								"command": "sudo dnf install -y git"
 							},
 							"B_Clone_Repo": {
-								"command": "sudo git clone https://github.com/mikehdt/aws-foundry-ssl.git",
+								"command": "sudo git clone https://github.com/michaelwmcnamara/aws-foundry-ssl.git",
 								"cwd": "/"
 							},
 							"C_Start_Install": {
