@@ -1,5 +1,5 @@
 {
-  "port": 30000,
+  "port": 29845,
   "upnp": true,
   "fullscreen": false,
   "hostname": "YOURSUBDOMAINHERE.YOURDOMAINHERE",

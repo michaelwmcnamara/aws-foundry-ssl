@@ -23,7 +23,23 @@ if [[ `echo ${foundry_download_link}  | cut -d '/' -f3` == 'drive.google.com' ]]
         fi
     done
 else
-    sudo wget -O foundry.zip "${foundry_download_link}"
+    if [[ `echo ${foundry_download_link}  | cut -d ':' -f1` == 's3' ]]; then
+      while (( FS_Retry < 4 )); do
+              sudo aws s3 cp ${foundry_download_link} foundry.zip
+              filesize=$(stat -c%s "./foundry.zip")
+              echo "Size of foundry.zip = $filesize bytes."
+
+              if (( filesize > 100000000 )); then
+                  echo "Filesize seems about right! Proceeding..."
+                  break
+              else
+                  echo "Filesize looking too small. Retrying..."
+                  ((FS_Retry++))
+              fi
+      done
+    else
+      sudo wget -O foundry.zip "${foundry_download_link}"
+    fi
 fi
 
 unzip -u foundry.zip
